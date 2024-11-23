@@ -1,0 +1,176 @@
+/* General Reset CO23306*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and basic layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #E8061C, #F8CF1F);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    background-size: cover;
+}
+
+/* Auth Container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+}
+
+/* Flexbox Layout for Logo and Form */
+.auth-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1000px; /* Limit the width */
+    height: 400px; /* Fixed height for both logo and form */
+}
+
+/* Specific to login page: position logo on the right */
+.login-page .auth-box-wrapper {
+    flex-direction: row-reverse; /* Reverse the order to have the logo on the right */
+}
+
+/* Auth Box (Form) */
+.auth-box {
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Logo */
+.auth-logo {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* Initial state for the sliding animation */
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideInFromRight 1s ease-out forwards; /* Smoother easing */
+}
+
+.auth-logo img {
+    width: 100%; /* Make the logo take up 100% width of its container */
+    height: 100%; /* Make the logo the same height as the auth box */
+    object-fit: cover; /* Ensure the logo maintains its aspect ratio */
+    border-radius: 10px; /* Smooth out the edges of the logo */
+}
+
+/* Sliding animation from the right */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Header */
+h2 {
+    color: #F8CF1F;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: #F8CF1F;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #F8CF1F;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #05B8D6;
+    box-shadow: 0 0 10px rgba(5, 184, 214, 0.5);
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #F8CF1F;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #e0b600;
+}
+
+/* Links */
+a {
+    color: #05B8D6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bottom Text */
+p {
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-box-wrapper {
+        flex-direction: column; /* Stack logo and form vertically */
+        height: auto;
+        text-align: center;
+    }
+    .auth-logo {
+        margin-bottom: 20px; /* Space between logo and form */
+        height: auto;
+        width: 100%;
+        transform: translateX(0); /* Ensure the logo is fully visible on mobile */
+        opacity: 1;
+    }
+    .auth-box {
+        width: 80%;
+    }
+}
